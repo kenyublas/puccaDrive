@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PuccaDrive</title>
+  <style>
+    body {
+      background: #fff4f4;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .carta {
+      background: #fff;
+      border: 2px solid #ff5e99;
+      border-radius: 20px;
+      padding: 30px;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+      animation: flotar 3s ease-in-out infinite;
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .pucca-btn {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .pucca-btn img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .imagen-picnic {
+      margin-top: 20px;
+      max-width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Carta animada -->
+  <div class="carta">
+    <button class="pucca-btn" onclick="toggleAudio()">
+      <img src="img/pucca_icon.png" alt="Reproducir canción">
+    </button>
+    <h2>Para mi princesita 💌</h2>
+    <p>
+      Cada día contigo es una aventura hermosa. Gracias por ser tú,
+      por compartir tu amor y tus berrinches conmigo.
+      Gracias por volver a mi vida, por creer en este amor.
+      Que este picnic sea el primer capitulo de nuestra nueva historia
+      Tú y yo. versión 2.0 💕
+    </p>
+  </div>
+
+  <!-- Imagen de Pucca y Garu en picnic -->
+  <img class="imagen-picnic" src="img/pucca_garu_picnic.png" alt="Pucca y Garu Picnic">
+
+  <!-- Audio de fondo -->
+  <audio id="miAudio" src="audio/reik_pero_te_conoci.mp3"></audio>
+
+  <script>
+    const audio = document.getElementById('miAudio');
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
+
+</body>
+</html>
